@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+pico/secrets.py
+**/secrets.py
+*.py[cod]
+*$py.class
+venv/
+.env
+.venv
+env/
+dist/
+build/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+build/
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+.mqtt_listener.lock

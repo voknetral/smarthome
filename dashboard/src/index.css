@@ -1,0 +1,317 @@
+@import "tailwindcss";
+
+/* ============================================
+   60-30-10 COLOR THEME
+   60% Dominant: Soft Neutral Background (Slate)
+   30% Secondary: Cool Blue Accent (for cards, text)
+   10% Accent: Vibrant Teal/Emerald (CTAs, highlights)
+   ============================================ */
+:root {
+  /* 60% Dominant - Backgrounds & large areas */
+  --color-dominant-bg: #f8fafc;
+  /* slate-50 */
+  --color-dominant-surface: #f1f5f9;
+  /* slate-100 */
+  --color-dominant-muted: #e2e8f0;
+  /* slate-200 */
+
+  /* 30% Secondary - Cards, Text, Borders */
+  --color-secondary-dark: #1e293b;
+  /* slate-800 - primary text */
+  --color-secondary-medium: #475569;
+  /* slate-600 - secondary text */
+  --color-secondary-light: #94a3b8;
+  /* slate-400 - muted text */
+  --color-secondary-surface: #ffffff;
+  /* card backgrounds */
+  --color-secondary-border: #f1f5f9;
+  /* slate-100 - subtler borders */
+
+  /* 10% Accent - CTA, Active States, Highlights */
+  --color-accent-primary: #14b8a6;
+  /* teal-500 */
+  --color-accent-primary-hover: #0d9488;
+  /* teal-600 */
+  --color-accent-secondary: #6366f1;
+  /* indigo-500 */
+  --color-accent-success: #22c55e;
+  /* green-500 */
+  --color-accent-warning: #f59e0b;
+  /* amber-500 */
+  --color-accent-danger: #ef4444;
+  /* red-500 */
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.02), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 25px rgba(20, 184, 166, 0.15);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-dominant-bg);
+  color: var(--color-secondary-dark);
+}
+
+#root {
+  height: 100%;
+}
+
+/* ============================================
+   UTILITY CLASSES (60-30-10 Based)
+   ============================================ */
+
+/* Backgrounds */
+.bg-dominant {
+  background-color: var(--color-dominant-bg);
+}
+
+.bg-surface {
+  background-color: var(--color-secondary-surface);
+}
+
+.bg-muted {
+  background-color: var(--color-dominant-muted);
+}
+
+.bg-accent {
+  background-color: var(--color-accent-primary);
+}
+
+.bg-accent-gradient {
+  background: var(--gradient-accent);
+}
+
+/* Text */
+.text-primary {
+  color: var(--color-secondary-dark);
+}
+
+.text-secondary {
+  color: var(--color-secondary-medium);
+}
+
+.text-muted {
+  color: var(--color-secondary-light);
+}
+
+.text-accent {
+  color: var(--color-accent-primary);
+}
+
+/* Borders */
+.border-theme {
+  border-color: var(--color-secondary-border);
+}
+
+/* Shadows */
+.shadow-theme-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-theme-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-theme-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-theme-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+/* Cards */
+.card-theme {
+  background-color: var(--color-secondary-surface);
+  border: 1px solid var(--color-secondary-border);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.card-theme:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Buttons - Primary Accent */
+.btn-accent {
+  background-color: var(--color-accent-primary);
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-primary-hover);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Buttons - Secondary */
+.btn-secondary {
+  background-color: var(--color-dominant-surface);
+  color: var(--color-secondary-dark);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  border: 1px solid var(--color-secondary-border);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-dominant-muted);
+}
+
+/* Active/Selected States */
+.active-accent {
+  background-color: rgba(20, 184, 166, 0.1);
+  color: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px var(--color-accent-primary);
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--color-accent-primary);
+  }
+}
+
+.page-enter-active {
+  animation: slideUp 0.5s ease-out;
+}
+
+.sensor-card-enter {
+  animation: scaleIn 0.4s ease-out;
+}
+
+.chart-container-enter {
+  animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   SCROLLBAR STYLING (Camouflage with Sidebar)
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+  /* slate-800 - matches sidebar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  /* slate-600 - slightly brighter than sidebar */
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+  /* slate-500 - even brighter on hover */
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #475569 #1e293b;
+  /* thumb track */
+}
+
+/* ============================================
+   INPUT & FORM REFINEMENTS
+   ============================================ */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #1e293b inset !important;
+  /* Matches slate-800 */
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Reset default focus ring for all interactive elements */
+:focus {
+  outline: none !important;
+}
+
+/* ============================================
+   PAGE SECTION BASE STYLING
+   ============================================ */
+.page-section {
+  padding: 1.5rem 1rem;
+  background-color: var(--color-dominant-bg);
+  min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  .page-section {
+    padding: 1.5rem;
+  }
+}
