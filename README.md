@@ -91,4 +91,3 @@ npm install
 | `nusahome/system/picow/status`| Status Alat | `{"status": "READY", "uptime": 3600}` |
 
 ---
-# smarthome
